@@ -29,10 +29,10 @@ using namespace log4cxx::xml;
 
 extern "C" int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
 	/* Write the fuzz input to /dev/shm: Mayhem mounts the image read-only
-	 * during coverage collection, so a CWD-relative "conf.xml" open always
-	 * fails (fopen returns NULL → early return → 0 edges).  /dev/shm is a
-	 * kernel-provided tmpfs that Docker keeps writable even with --read-only;
-	 * it is the only safe scratch location under Mayhem's coverage run. */
+	 * during coverage collection, so the original CWD-relative "conf.xml"
+	 * open always fails (fopen returns NULL → early return → 0 edges).
+	 * /dev/shm is a kernel tmpfs that Docker provides writable even with
+	 * --read-only; it is the only safe scratch location under Mayhem. */
 	const char *filename = "/dev/shm/domconfigurator_fuzz.xml";
 
 	FILE *fp = fopen(filename, "wb");

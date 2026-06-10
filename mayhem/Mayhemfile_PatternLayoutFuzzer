@@ -1,0 +1,6 @@
+project: apache-logging-log4cxx
+target: PatternLayoutFuzzer
+cmds:
+  - cmd: /mayhem/PatternLayoutFuzzer
+    libfuzzer: true
+    cwd: /dev/shm

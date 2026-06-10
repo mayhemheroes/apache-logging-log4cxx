@@ -1,0 +1,6 @@
+project: apache-logging-log4cxx
+target: TranscoderFuzzer
+cmds:
+  - cmd: /mayhem/TranscoderFuzzer
+    libfuzzer: true
+    cwd: /dev/shm

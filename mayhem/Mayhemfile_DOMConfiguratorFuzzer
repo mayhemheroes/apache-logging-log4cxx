@@ -1,0 +1,9 @@
+project: apache-logging-log4cxx
+target: DOMConfiguratorFuzzer
+testsuite:  # mayhem-lint: keep-testsuite — DOMConfiguratorFuzzer parses log4cxx XML config; random bytes are rejected by the XML/DOCTYPE header immediately and cover ~0 edges without valid config seeds
+  - file:///mayhem/mayhem/testsuite/DOMConfiguratorFuzzer
+cmds:
+  - cmd: /mayhem/DOMConfiguratorFuzzer
+    libfuzzer: true
+    cwd: /dev/shm
+    dictionary: /mayhem/mayhem/DOMConfiguratorFuzzer.dict

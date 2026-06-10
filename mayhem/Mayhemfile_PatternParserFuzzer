@@ -1,0 +1,7 @@
+project: apache-logging-log4cxx
+target: PatternParserFuzzer
+cmds:
+  - cmd: /mayhem/PatternParserFuzzer
+    libfuzzer: true
+    cwd: /dev/shm
+    dictionary: /mayhem/mayhem/PatternParserFuzzer.dict
